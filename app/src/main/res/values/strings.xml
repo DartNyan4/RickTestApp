@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">RickTestApp</string>
+
+    <string name="locations">Locations</string>
+    <string name="characters">Characters</string>
+    <string name="episodes">Episodes</string>
+    <string name="species_format">Species: %s</string>
+    <string name="status_format">Status: %s</string>
+    <string name="gender_format">Gender: %s</string>
+
+</resources>
