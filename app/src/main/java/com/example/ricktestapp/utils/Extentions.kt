@@ -3,8 +3,12 @@ package com.example.ricktestapp.utils
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.annotation.DimenRes
 import androidx.annotation.DrawableRes
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.RecyclerView
 import com.example.ricktestapp.R
 import com.squareup.picasso.Picasso
 import okhttp3.OkHttpClient
@@ -50,6 +54,15 @@ fun View.setVerticalMargin(@DimenRes marginResId: Int) {
 fun ImageView.loadUrl(url: String?, @DrawableRes placeholder: Int = R.drawable.ic_avatar_placeholder) {
     if (url.isNullOrEmpty()) return
     Picasso.get().load(url).placeholder(placeholder).into(this)
+}
+
+fun RecyclerView.addDividerItemDecorator(@DrawableRes drawableRes: Int) {
+    addItemDecoration(
+        DividerItemDecoration(context, LinearLayout.VERTICAL).apply {
+            ContextCompat.getDrawable(context, drawableRes)?.let { drawable ->
+                setDrawable(drawable)
+            }
+        })
 }
 
 var OkHttpClient.Builder.isLoggingInterceptorEnabled: Boolean
